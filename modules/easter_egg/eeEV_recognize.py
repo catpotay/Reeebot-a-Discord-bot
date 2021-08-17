@@ -3,15 +3,17 @@ from ..text_generation.backend import GPT2Wrapper
 
 
 class eeAware():
+
+    recognizer = ClassPredictor()
     
     def recognize(self, url):
         if not ClassPredictor.initialized:
             return ""
-        ClassPredictor.open_from_url(url)
-        pd = ClassPredictor.predict()
+        self.recognizer.open_from_url(url)
+        pd = self.recognizer.predict()
         # print(url)
         # print(pd)
-        if (predicted:=ClassPredictor.most_likely(pd, threshold = 0.8))\
+        if (predicted:=self.recognizer.most_likely(pd, threshold = 0.8))\
             [0] == "I":
             return ""
 

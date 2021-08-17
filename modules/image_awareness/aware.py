@@ -13,7 +13,7 @@ class ImageAware(commands.Cog, name='Image Awareness'):
             Tells which Eeveelution is in an image or avatar (works best when face not obscured)
             Open source link: https://colab.research.google.com/drive/15mm41wCpEHrbsCSV3NR4xfEmYn0qmntp
         """
-        img = ClassPredictor
+        img = ClassPredictor()
         url = img.image_url_from_msg(ctx.message)
         img.open_from_url(url)
         pd = img.predict()
@@ -22,7 +22,7 @@ class ImageAware(commands.Cog, name='Image Awareness'):
 
     @whichEV.command()
     async def noArgmax(self, ctx):
-        img = ClassPredictor
+        img = ClassPredictor()
         url = img.image_url_from_msg(ctx.message)
         img.open_from_url(url)
         pd = img.predict()
