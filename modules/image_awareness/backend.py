@@ -39,8 +39,6 @@ class ClassPredictor(ImageOpener):
         cv2.waitKey(0)
 
         input_ = np.asarray([self.get_img()]).astype(np.float32)
-        # pd = ClassPredictor._model.predict(input_)[0]
-
         x = ClassPredictor._model
         x.set_tensor(0, input_)
         x.invoke()
